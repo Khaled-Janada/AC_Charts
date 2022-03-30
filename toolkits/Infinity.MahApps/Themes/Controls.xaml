@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<ResourceDictionary.MergedDictionaries>
+		<!-- Basic Controls -->
+		<ResourceDictionary Source="BasicControls/InfComboBox.xaml" />
+		<ResourceDictionary Source="BasicControls/InfNumberBox.xaml" />
+		<ResourceDictionary Source="BasicControls/InfTextBox.xaml" />
+
+		<!-- Data Grid -->
+		<ResourceDictionary Source="DataGrid/InfDataGrid.xaml" />
+		<ResourceDictionary Source="DataGrid/DataGridComboBox.xaml" />
+		<ResourceDictionary Source="DataGrid/DataGridNumberBox.xaml" />
+		<ResourceDictionary Source="DataGrid/DataGridTextBox.xaml" />
+
+		<!-- Menu -->
+		<ResourceDictionary Source="Menu/InfMenu.xaml" />
+		<ResourceDictionary Source="Menu/InfMenuItem.xaml" />
+
+		<!-- Tab Control -->
+		<ResourceDictionary Source="TabControl/InfTabControl.xaml" />
+		<ResourceDictionary Source="TabControl/TabItem.xaml" />
+
+		<!-- Toolbar -->
+		<ResourceDictionary Source="ToolBar/InfToolbar.xaml" />
+		<ResourceDictionary Source="ToolBar/InfToolbarButton.xaml" />
+		<ResourceDictionary Source="ToolBar/InfToolbarSeparator.xaml" />
+		<ResourceDictionary Source="ToolBar/InfToolbarTab.xaml" />
+
+		<!-- Window -->
+		<ResourceDictionary Source="Window/InfRenameDialog.xaml" />
+		<ResourceDictionary Source="Window/InfWindow.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

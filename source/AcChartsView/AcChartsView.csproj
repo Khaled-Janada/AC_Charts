@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+        <Authors>Khaled Janaada</Authors>
+        <Company>Khaled Janada</Company>
+        <AssemblyVersion>1.0</AssemblyVersion>
+
+        <AssemblyName>AC Charts</AssemblyName>
+        <RootNamespace>AcCharts</RootNamespace>
+        <Product>AC Charts</Product>
+
+        <ApplicationIcon>Resources\Icons\MainIcon.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\toolkits\Infinity.MahApps\Infinity.MahApps.csproj" />
+        <ProjectReference Include="..\AcChartsViewModel\AcChartsViewModel.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Resources\Icons\AppExit.png" />
+        <Resource Include="Resources\Icons\AppExit.png" />
+        <None Remove="Resources\Icons\ChartAdd.png" />
+        <Resource Include="Resources\Icons\ChartAdd.png" />
+        <None Remove="Resources\Icons\ChartClearData.png" />
+        <Resource Include="Resources\Icons\ChartClearData.png" />
+        <None Remove="Resources\Icons\ChartClose.png" />
+        <Resource Include="Resources\Icons\ChartClose.png" />
+        <None Remove="Resources\Icons\ChartRandomData.png" />
+        <Resource Include="Resources\Icons\ChartRandomData.png" />
+        <None Remove="Resources\Icons\ChartScreenShot.png" />
+        <Resource Include="Resources\Icons\ChartScreenShot.png" />
+        <None Remove="Resources\Icons\MainIcon.ico" />
+        <Resource Include="Resources\Icons\MainIcon.ico" />
+        <None Remove="Resources\Icons\MainIcon.png" />
+        <Resource Include="Resources\Icons\MainIcon.png" />
+        <None Remove="Resources\Icons\Rename.png" />
+        <Resource Include="Resources\Icons\Rename.png" />
+        <None Remove="Resources\Icons\SystemClose.png" />
+        <Resource Include="Resources\Icons\SystemClose.png" />
+        <None Remove="Resources\Icons\SystemInfo.png" />
+        <Resource Include="Resources\Icons\SystemInfo.png" />
+        <None Remove="Resources\Icons\SystemNew.png" />
+        <Resource Include="Resources\Icons\SystemNew.png" />
+        <None Remove="Resources\Icons\SystemOpen.png" />
+        <Resource Include="Resources\Icons\SystemOpen.png" />
+        <None Remove="Resources\Icons\SystemSave.png" />
+        <Resource Include="Resources\Icons\SystemSave.png" />
+        <None Remove="Resources\Icons\ToolsCalculateLimits.png" />
+        <Resource Include="Resources\Icons\ToolsCalculateLimits.png" />
+        <None Remove="Resources\Icons\ToolsPlotLimits.png" />
+        <Resource Include="Resources\Icons\ToolsPlotLimits.png" />
+        <None Remove="Resources\Icons\WindowScreenShot.png" />
+        <Resource Include="Resources\Icons\WindowScreenShot.png" />
+        <None Remove="Resources\Icons\DPI.png" />
+        <Resource Include="Resources\Icons\DPI.png" />
+    </ItemGroup>
+</Project>

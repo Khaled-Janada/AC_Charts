@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:inf="clr-namespace:Infinity.Controls"
+					xmlns:numeric="clr-namespace:Infinity.ComponentModel.Numeric;assembly=Infinity.Mvvm">
+
+	<DataTemplate DataType="{x:Type numeric:BindableInt}">
+		<inf:InfNumberBox
+			Value="{Binding Value}" Maximum="{Binding MaxValue}" Minimum="{Binding MinValue}"
+			Interval="1" NumericInputMode="Numbers"
+			Label="{Binding Name, StringFormat={}{0}:}"
+			FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}}" />
+	</DataTemplate>
+</ResourceDictionary>

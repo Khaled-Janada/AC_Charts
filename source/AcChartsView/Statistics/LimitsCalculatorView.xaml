@@ -1,0 +1,82 @@
+﻿<inf:InfWindow
+	x:Class="AcCharts.Statistics.LimitsCalculatorView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:inf="clr-namespace:Infinity.Controls;assembly=Infinity.MahApps"
+	xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+	xmlns:chartElements="clr-namespace:AcCharts.Chart.ChartElements;assembly=AcChartsModel"
+	xmlns:statistics="clr-namespace:AcCharts.Statistics;assembly=AcChartsViewModel"
+	mc:Ignorable="d" d:DataContext="{d:DesignInstance statistics:LimitsCalculatorViewModel}"
+
+	Style="{StaticResource WindowStyle}" ShowInTaskbar="False"
+	Title="Angular Control Limits Calculator"
+	Width="950" MinWidth="900" MaxWidth="1250"
+	MinHeight="550" Height="550" MaxHeight="650">
+
+	<Grid Margin="20,40,20,20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+		<ContentControl
+			Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"
+			Content="{Binding DistributionList.Counter}" MinWidth="200" />
+
+		<StackPanel
+			Grid.Row="0" Grid.Column="1"
+			Orientation="Horizontal" VerticalAlignment="Center">
+
+			<TextBlock Text="Scale Type:" Margin="10" VerticalAlignment="Center" />
+
+			<inf:InfComboBox
+				FontSize="13" VerticalAlignment="Center" MinWidth="150"
+				ItemsSource="{x:Static statistics:LimitsCalculatorViewModel.ChartScaleTypes}" DisplayMemberPath="Value"
+				SelectedValue="{Binding ScaleType}" SelectedValuePath="Key" />
+		</StackPanel>
+
+		<ContentControl
+			Margin="20"
+			Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+			Content="{Binding DistributionList}" FocusVisualStyle="{x:Null}" />
+
+		<StackPanel Grid.Row="1" Grid.Column="2" Margin="20">
+			<TextBlock
+				Margin="5"
+				TextAlignment="Center" Text="Angular Control Limits" />
+
+			<inf:InfDataGrid
+				IsReadOnly="True" HorizontalAlignment="Center"
+				SelectionMode="Extended" VerticalScrollBarVisibility="Hidden"
+				SelectionUnit="Cell" RowHeaderWidth="35" AutoGenerateColumns="False"
+				ItemsSource="{Binding AngularControlLimitsList}" CanUserSortColumns="False"
+				CanUserResizeRows="False">
+
+				<inf:InfDataGrid.Columns>
+
+					<mah:DataGridNumericUpDownColumn
+						Header="LCL" Binding="{Binding (chartElements:AngularControlLimits.Lcl), Mode=OneWay}"
+						HideUpDownButtons="True" TextAlignment="Left" StringFormat="N2"
+						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
+
+					<mah:DataGridNumericUpDownColumn
+						Header="CCL" Binding="{Binding (chartElements:AngularControlLimits.Ccl), Mode=OneWay}"
+						HideUpDownButtons="True" TextAlignment="Left" StringFormat="N2"
+						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
+
+					<mah:DataGridNumericUpDownColumn
+						Header="UCL" Binding="{Binding (chartElements:AngularControlLimits.Ucl), Mode=OneWay}"
+						HideUpDownButtons="True" TextAlignment="Left" StringFormat="N2"
+						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
+				</inf:InfDataGrid.Columns>
+			</inf:InfDataGrid>
+		</StackPanel>
+	</Grid>
+</inf:InfWindow>

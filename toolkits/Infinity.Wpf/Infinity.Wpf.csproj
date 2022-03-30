@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+        <Authors>Khaled Janaada</Authors>
+        <Company>Khaled Janada</Company>
+        <AssemblyVersion>1.0</AssemblyVersion>
+
+        <RootNamespace>Infinity</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Infinity.Mvvm\Infinity.Mvvm.csproj" />
+    </ItemGroup>
+
+</Project>

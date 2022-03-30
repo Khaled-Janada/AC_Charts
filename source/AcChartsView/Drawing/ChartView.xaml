@@ -1,0 +1,64 @@
+<UserControl
+	x:Class="AcCharts.Drawing.ChartView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+	xmlns:attached="clr-namespace:Infinity.Attached;assembly=Infinity.MahApps"
+	xmlns:drawingVm="clr-namespace:AcCharts.Drawing;assembly=AcChartsViewModel"
+	xmlns:drawingV="clr-namespace:AcCharts.Drawing"
+	mc:Ignorable="d" d:DataContext="{d:DesignInstance drawingVm:ChartViewModel}"
+	d:DesignHeight="300" d:DesignWidth="300">
+
+	<UserControl.Resources>
+		<DataTemplate DataType="{x:Type drawingVm:AxisTitleViewModel}">
+			<TextBlock Style="{StaticResource AxisStyle}" x:Name="TextBlock" />
+
+			<DataTemplate.Triggers>
+				<DataTrigger Binding="{Binding UseFormattedText}" Value="True">
+					<Setter
+						TargetName="TextBlock"
+						Property="attached:TextBlockExt.FormattedText" Value="{Binding FormattedText}" />
+				</DataTrigger>
+
+				<DataTrigger Binding="{Binding UseFormattedText}" Value="False">
+					<Setter
+						TargetName="TextBlock" Property="Text" Value="{Binding UnformattedText}" />
+				</DataTrigger>
+			</DataTemplate.Triggers>
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<Grid Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+		<ContentControl Content="{Binding YAxisTitle}" Margin="5,0,10,60" Grid.Column="0" Grid.Row="0">
+			<ContentControl.LayoutTransform>
+				<RotateTransform Angle="-90" />
+			</ContentControl.LayoutTransform>
+		</ContentControl>
+
+		<drawingV:Chart
+			Grid.Column="1" Grid.Row="0"
+			Series="{Binding ChartSeriesCollection}" HorizontalAlignment="Stretch">
+			<drawingV:Chart.AxisX>
+				<lvc:Axis MinValue="{x:Static drawingVm:ChartViewModel.MinValue}" MaxValue="{Binding XMax}"
+						  LabelFormatter="{Binding LabelFormatter}" />
+			</drawingV:Chart.AxisX>
+			<drawingV:Chart.AxisY>
+				<lvc:Axis MinValue="{x:Static drawingVm:ChartViewModel.MinValue}" MaxValue="{Binding YMax}"
+						  LabelFormatter="{Binding LabelFormatter}" />
+			</drawingV:Chart.AxisY>
+		</drawingV:Chart>
+
+		<ContentControl Content="{Binding XAxisTitle}" Margin="0,0,0,10" Grid.Column="1" Grid.Row="1" />
+	</Grid>
+</UserControl>

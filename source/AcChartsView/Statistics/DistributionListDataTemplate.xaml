@@ -1,0 +1,88 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+	xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+	xmlns:inf="clr-namespace:Infinity.Controls;assembly=Infinity.MahApps"
+	xmlns:converters="clr-namespace:Infinity.Converters;assembly=Infinity.Wpf"
+	xmlns:stats="clr-namespace:AcCharts.Statistics;assembly=AcChartsViewModel">
+
+	<converters:InvertBoolConverter x:Key="InvertBoolConverter" />
+
+	<DataTemplate DataType="{x:Type stats:DistributionListViewModel}">
+		<StackPanel Orientation="Vertical">
+			<TextBlock Margin="5" TextAlignment="Center" Text="{x:Static stats:DistributionListViewModel.ListTitle}" />
+
+			<inf:InfDataGrid
+				IsReadOnly="{Binding IsEditable, Converter={StaticResource InvertBoolConverter}}"
+				ItemsSource="{Binding}" AutoGenerateColumns="False"
+				HorizontalAlignment="Center" x:Name="DataGrid" VerticalScrollBarVisibility="Hidden">
+
+				<inf:InfDataGrid.Columns>
+					<DataGridTemplateColumn
+						MinWidth="130" Header="Distribution Type">
+						<DataGridTemplateColumn.CellTemplate>
+							<DataTemplate DataType="stats:DistributionViewModel">
+								<TextBox Style="{StaticResource Infinity.Style.InfDataGrid.TextBox}"
+										 Text="{Binding Type}" VerticalContentAlignment="Center" />
+							</DataTemplate>
+						</DataGridTemplateColumn.CellTemplate>
+						<DataGridTemplateColumn.CellEditingTemplate>
+							<DataTemplate DataType="stats:DistributionViewModel">
+								<ComboBox Style="{StaticResource Infinity.Style.InfDataGrid.ComboBox.CellEdit}"
+										  ItemsSource="{x:Static stats:DistributionListViewModel.DistributionTypes}"
+										  SelectedItem="{Binding Type, UpdateSourceTrigger=PropertyChanged}" />
+							</DataTemplate>
+						</DataGridTemplateColumn.CellEditingTemplate>
+					</DataGridTemplateColumn>
+
+					<mah:DataGridNumericUpDownColumn
+						Header="Scale Parameter" Binding="{Binding Scale}"
+						HideUpDownButtons="True" TextAlignment="Left" Interval="1"
+						Minimum="0.01" StringFormat="N2" Width="142" MaxWidth="142"
+						EditingElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}"
+						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
+
+
+					<mah:DataGridNumericUpDownColumn
+						Header="Shape Parameter" Binding="{Binding Shape}"
+						HideUpDownButtons="True" TextAlignment="Left"
+						Minimum="0.01" StringFormat="N2" Width="142" MaxWidth="142"
+						EditingElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}"
+						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}">
+
+						<mah:DataGridNumericUpDownColumn.CellStyle>
+							<Style TargetType="DataGridCell" BasedOn="{StaticResource Infinity.Style.InfDataGrid.Cell}">
+								<d:Style.DataContext>
+									<x:Type Type="stats:DistributionViewModel" />
+								</d:Style.DataContext>
+								<Style.Triggers>
+
+									<DataTrigger Binding="{Binding HasShape}" Value="True">
+										<Setter Property="IsEnabled" Value="True" />
+										<Setter Property="Background" Value="Transparent" />
+										<Setter Property="BorderThickness" Value="0.5,1,0,0" />
+									</DataTrigger>
+									<DataTrigger Binding="{Binding HasShape}" Value="False">
+										<Setter Property="IsEnabled" Value="False" />
+										<Setter Property="Background" Value="Gray" />
+										<Setter Property="BorderThickness" Value="1,1.5,0,0" />
+									</DataTrigger>
+
+								</Style.Triggers>
+							</Style>
+						</mah:DataGridNumericUpDownColumn.CellStyle>
+					</mah:DataGridNumericUpDownColumn>
+
+					<mah:DataGridNumericUpDownColumn
+						Header="Location Parameter" Binding="{Binding Location}"
+						HideUpDownButtons="True" TextAlignment="Left" Interval="1"
+						Minimum="0" StringFormat="N2" Width="142" MaxWidth="142"
+						EditingElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}"
+						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
+				</inf:InfDataGrid.Columns>
+			</inf:InfDataGrid>
+		</StackPanel>
+	</DataTemplate>
+</ResourceDictionary>

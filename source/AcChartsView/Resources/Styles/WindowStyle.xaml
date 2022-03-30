@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:controls="clr-namespace:Infinity.Controls;assembly=Infinity.MahApps">
+
+	<Style TargetType="{x:Type controls:InfWindow}" x:Key="WindowStyle">
+		<!-- <Setter Property="WindowTitleBrush" Value="{StaticResource Background.Light}" /> -->
+		<Setter Property="Foreground" Value="{StaticResource Foreground.Content.Dark}" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="TitleFontFamily" Value="Berlin Sans FB" />
+		<Setter Property="TitleFontSize" Value="16" />
+		<Setter Property="TitleForeground" Value="{StaticResource Foreground.Content.Lighter}" />
+		<Setter Property="TitleFontWeight" Value="DemiBold" />
+	</Style>
+
+	<Style TargetType="{x:Type controls:InfRenameDialog}" BasedOn="{StaticResource WindowStyle}">
+		<Setter Property="Icon" Value="../Icons/Rename.png" />
+	</Style>
+</ResourceDictionary>

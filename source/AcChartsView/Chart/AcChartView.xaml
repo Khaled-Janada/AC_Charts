@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="AcCharts.Chart.AcChartView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:inf="clr-namespace:Infinity.Controls;assembly=Infinity.MahApps"
+			 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+			 xmlns:chart="clr-namespace:AcCharts.Chart;assembly=AcChartsViewModel"
+			 xmlns:chartElements="clr-namespace:AcCharts.Chart.ChartElements;assembly=AcChartsViewModel"
+			 mc:Ignorable="d" d:DataContext="{d:DesignInstance chart:AcChartViewModel}"
+			 d:DesignHeight="300" d:DesignWidth="300">
+
+	<DockPanel>
+
+		<Border Width="300" Margin="10" DockPanel.Dock="Right"
+				BorderThickness="1.5,1.5,0,0" BorderBrush="{DynamicResource MahApps.Brushes.Accent}" CornerRadius="4">
+			<Border BorderThickness="0,0,2,2" BorderBrush="{DynamicResource MahApps.Brushes.Accent3}" CornerRadius="4">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+
+					<StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+
+						<TextBlock Text="Scale Type: " FontSize="14" VerticalAlignment="Center" Margin="5" />
+
+						<inf:InfComboBox
+							FontSize="13" VerticalAlignment="Center" Margin="5" MinWidth="142"
+							ItemsSource="{x:Static chart:AcChartViewModel.ChartScaleTypes}" DisplayMemberPath="Value"
+							SelectedValue="{Binding ScaleType}" SelectedValuePath="Key" />
+					</StackPanel>
+
+					<ContentControl FocusVisualStyle="{x:Null}" Content="{Binding Observations.Counter}"
+									Margin="30,0,30,15" Grid.Row="1" FontSize="14" />
+
+					<inf:InfDataGrid
+						Grid.Row="2" Margin="0,0,0,10" HorizontalAlignment="center" x:Name="DataGrid"
+						SelectionUnit="CellOrRowHeader" SelectionMode="Extended"
+						RowHeaderWidth="35" AutoGenerateColumns="False"
+						FontWeight="SemiBold" FontSize="16"
+						ItemsSource="{Binding Observations}" CanUserSortColumns="False" CanUserResizeRows="False">
+
+						<inf:InfDataGrid.Columns>
+
+							<DataGridTemplateColumn
+								MinWidth="100" Header="State Transition">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate DataType="chartElements:ObservationViewModel">
+										<TextBox Style="{StaticResource Infinity.Style.InfDataGrid.TextBox}"
+												 Text="{Binding State}" VerticalContentAlignment="Center" />
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+								<DataGridTemplateColumn.CellEditingTemplate>
+									<DataTemplate DataType="chartElements:ObservationViewModel">
+										<ComboBox Style="{StaticResource Infinity.Style.InfDataGrid.ComboBox.CellEdit}"
+												  ItemsSource="{Binding DataContext.States, ElementName=DataGrid}"
+												  SelectedItem="{Binding State, UpdateSourceTrigger=PropertyChanged}" />
+									</DataTemplate>
+								</DataGridTemplateColumn.CellEditingTemplate>
+							</DataGridTemplateColumn>
+
+							<mah:DataGridNumericUpDownColumn
+								Header="Time To Fail" Binding="{Binding (chartElements:ObservationViewModel.TimeToFail)}"
+								HideUpDownButtons="True" TextAlignment="Left" MinWidth="100"
+								Minimum="0" StringFormat="N2" FontWeight="Medium"
+								EditingElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}"
+								ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
+						</inf:InfDataGrid.Columns>
+					</inf:InfDataGrid>
+				</Grid>
+			</Border>
+		</Border>
+
+		<ContentControl Content="{Binding Chart}" Margin="10,15,10,0" />
+	</DockPanel>
+</UserControl>

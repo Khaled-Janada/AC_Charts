@@ -1,0 +1,132 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:inf="clr-namespace:Infinity.Controls">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="/Infinity.MahApps;component/Themes/Theme.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<Style TargetType="{x:Type inf:InfNumberBox}" x:Key="Infinity.Style.InfNumberBox">
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+		<Setter Property="UpDownButtonsWidth" Value="15" />
+		<Setter Property="TextAlignment" Value="Left" />
+		<Setter Property="FontSize" Value="13" />
+		<Setter Property="UpDownButtonsFocusable" Value="False" />
+		<Setter Property="Foreground" Value="DimGray" />
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.TextBox.Border}" />
+		<Setter Property="AllowDrop" Value="true" />
+		<Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type inf:InfNumberBox}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+
+						<Border
+							x:Name="border"
+							Grid.Row="1"
+							Padding="1" BorderThickness="1" CornerRadius="5"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="Auto" />
+								</Grid.ColumnDefinitions>
+
+								<TextBox
+									x:Name="PART_TextBox"
+									VerticalAlignment="Stretch"
+									Grid.Column="0" MinWidth="20" MinHeight="25" Padding="7 12 7 8"
+									BorderThickness="0" BorderBrush="Transparent"
+									HorizontalAlignment="Stretch" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Background="{x:Null}"
+									FocusVisualStyle="{x:Null}" Focusable="{TemplateBinding Focusable}" FontFamily="{TemplateBinding FontFamily}"
+									FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"
+									HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+									IsReadOnly="{TemplateBinding IsReadOnly}" IsTabStop="{TemplateBinding IsTabStop}"
+									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" TabIndex="{TemplateBinding TabIndex}"
+									Style="{StaticResource MahApps.Styles.TextBox}" />
+
+								<StackPanel x:Name="PART_Buttons"
+											Grid.Column="1" Margin="5"
+											Orientation="Horizontal"
+											VerticalAlignment="Stretch">
+									<RepeatButton x:Name="PART_NumericDown"
+												  Background="Transparent"
+												  BorderBrush="{StaticResource MahApps.Brushes.Gray1}"
+												  Height="20" Width="20" Padding="3" Margin="1"
+												  Delay="{TemplateBinding Delay}"
+												  FocusVisualStyle="{x:Null}"
+												  IsTabStop="False">
+										<Path x:Name="MinusSign"
+											  StrokeThickness="1.5" Stretch="Uniform" Height="12" Width="12"
+											  Data="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+											  Stroke="{DynamicResource MahApps.Brushes.Accent}" />
+									</RepeatButton>
+									<RepeatButton x:Name="PART_NumericUp"
+												  Height="20" Width="20" Padding="3" Margin="1"
+												  Background="Transparent"
+												  BorderBrush="{StaticResource MahApps.Brushes.Gray1}"
+												  Delay="{TemplateBinding Delay}"
+												  FocusVisualStyle="{x:Null}"
+												  IsTabStop="False">
+										<Path x:Name="PlusSign"
+											  StrokeThickness="1.5" Stretch="Uniform" Height="12" Width="12"
+											  Data="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"
+											  Stroke="{DynamicResource MahApps.Brushes.Accent}" />
+									</RepeatButton>
+								</StackPanel>
+							</Grid>
+
+						</Border>
+
+						<TextBlock
+							x:Name="HintText" Text="{Binding Label, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+							Grid.Row="0" FontSize="11" Margin="10 0 0 -8" Padding="3 0 3 0"
+							Background="{Binding Background, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+							Foreground="{DynamicResource MahApps.Brushes.Accent}"
+							HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource MahApps.Brushes.Accent4}" />
+							<Setter Property="Background" TargetName="border" Value="Transparent" />
+							<Setter Property="BorderThickness" TargetName="border" Value="2" />
+							<Setter Property="Padding" TargetName="border" Value="0" />
+						</Trigger>
+						<Trigger Property="IsKeyboardFocused" Value="True" SourceName="PART_TextBox">
+							<Setter Property="BorderBrush" TargetName="border"
+									Value="{DynamicResource MahApps.Brushes.Accent}" />
+							<Setter Property="Padding" TargetName="border" Value="0" />
+							<Setter Property="BorderThickness" TargetName="border" Value="2" />
+							<Setter Property="Foreground" TargetName="HintText"
+									Value="{DynamicResource MahApps.Brushes.Gray.MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter Property="Background" TargetName="border" Value="Transparent" />
+							<Setter Property="BorderBrush" TargetName="border"
+									Value="{StaticResource MahApps.Brushes.RadioButton.BorderBrushDisabled}" />
+							<Setter Property="Foreground" Value="{StaticResource MahApps.Brushes.Badged.Foreground.Disabled}" />
+						</Trigger>
+						<Trigger Property="Validation.HasError" Value="true">
+							<Setter Property="BorderBrush" TargetName="border" Value="Red" />
+							<Setter Property="ToolTip"
+									Value="{Binding RelativeSource={RelativeSource Self},
+                                    Path=(Validation.Errors)[0].ErrorContent}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

@@ -1,0 +1,205 @@
+﻿<inf:InfWindow
+	x:Class="AcCharts.MainWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:inf="clr-namespace:Infinity.Controls;assembly=Infinity.MahApps"
+	xmlns:acCharts="clr-namespace:AcCharts;assembly=AcChartsViewModel"
+	mc:Ignorable="d" d:DataContext="{d:DesignInstance acCharts:MainViewModel}"
+	Style="{StaticResource WindowStyle}"
+	Icon="Resources/Icons/MainIcon.ico"
+	Title="{Binding System.Name, StringFormat=AC Charts: {0}, FallbackValue=AC Charts}"
+	Height="800" Width="1200" MinHeight="400" MinWidth="600">
+
+	<DockPanel>
+		<inf:InfMenu DockPanel.Dock="Top">
+			<inf:InfMenuItem Header="_System">
+				<inf:InfMenuItem
+					Command="{Binding NewSystemCommand}"
+					Header="_New Multi-State System...  (Ctrl + N)" ItemIcon="Resources/Icons/SystemNew.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding OpenSystemCommand}"
+					Header="_Open Multi-State System... (Ctrl + O)" ItemIcon="Resources/Icons/SystemOpen.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding SaveSystemCommand}"
+					Header="_Save Multi-State System...  (Ctrl + S)" ItemIcon="Resources/Icons/SystemSave.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding CloseSystemCommand}"
+					Header="_Close Multi-State System (Ctrl + Q)" ItemIcon="Resources/Icons/SystemClose.png" />
+
+				<Separator />
+
+				<inf:InfMenuItem
+					Command="{Binding SystemInfoCommand}"
+					Header="Multi-State System _Information..." ItemIcon="Resources/Icons/SystemInfo.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding RenameSystemCommand}"
+					Header="_Rename Multi-State System..." ItemIcon="Resources/Icons/Rename.png" />
+
+				<Separator />
+
+				<inf:InfMenuItem
+					Header="E_xit (Alt + F4)" ItemIcon="Resources/Icons/AppExit.png" Command="SystemCommands.CloseWindowCommand" />
+			</inf:InfMenuItem>
+
+			<inf:InfMenuItem Header="_Control Chart">
+				<inf:InfMenuItem
+					Command="{Binding AddChartCommand}"
+					Header="_Add Control Chart" ItemIcon="Resources/Icons/ChartAdd.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding DeleteChartCommand}"
+					Header="_Delete Control Chart" ItemIcon="Resources/Icons/ChartClose.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding RenameChartCommand}"
+					Header="_Rename Control Chart..." ItemIcon="Resources/Icons/Rename.png" />
+
+				<Separator />
+
+				<inf:InfMenuItem
+					Command="{Binding ClearChartCommand}"
+					Header="Clear Chart" ItemIcon="Resources/Icons/ChartClearData.png" />
+				<Separator />
+
+				<inf:InfMenuItem
+					Command="{Binding GenerateRandomDataCommand}"
+					Header="Generate Random Data..." ItemIcon="Resources/Icons/ChartRandomData.png" />
+				<Separator />
+			</inf:InfMenuItem>
+
+			<inf:InfMenuItem Header="_Tools">
+				<inf:InfMenuItem
+					Command="{Binding LimitsCalculatorCommand}"
+					Header="_Angular Limits Calculator..." ItemIcon="Resources/Icons/ToolsCalculateLimits.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding LimitsPlotterCommand}"
+					Header="_Plot Angular Limits vs Shape Parameter" ItemIcon="Resources/Icons/ToolsPlotLimits.png" />
+			</inf:InfMenuItem>
+
+			<inf:InfMenuItem Header="_Export">
+				<inf:InfMenuItem
+					Command="{Binding WindowScreenShotCommand}"
+					Header="_Window Screenshot... (Ctrl + P)" ItemIcon="Resources/Icons/WindowScreenShot.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding ChartScreenShotCommand}"
+					Header="_Chart Screenshot... (Ctrl + C)" ItemIcon="Resources/Icons/ChartScreenShot.png" />
+			</inf:InfMenuItem>
+
+			<inf:InfMenuItem Header="_Options">
+				<inf:InfMenuItem
+					Command="{Binding WindowScreenShotDpiCommand}"
+					Header="_Window Screenshot Resolution..." ItemIcon="Resources/Icons/DPI.png" />
+
+				<inf:InfMenuItem
+					Command="{Binding ChartScreenShotDpiCommand}"
+					Header="_Chart Screenshot Resolution..." ItemIcon="Resources/Icons/DPI.png" />
+			</inf:InfMenuItem>
+		</inf:InfMenu>
+
+		<inf:InfToolbar
+			DockPanel.Dock="Top">
+			<inf:InfToolbarTab Header="System">
+
+				<inf:InfToolbarButton
+					Command="{Binding NewSystemCommand}" Label="New"
+					ToolTip="New Multi-State System (Ctrl + N)" Icon="Resources/Icons/SystemNew.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding OpenSystemCommand}" Label="Open"
+					ToolTip="Open Multi-State System (Ctrl + O)" Icon="Resources/Icons/SystemOpen.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding SaveSystemCommand}" Label="Save"
+					ToolTip="Save Multi-State System (Ctrl + S)" Icon="Resources/Icons/SystemSave.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding CloseSystemCommand}" Label="Close"
+					ToolTip="Close Multi-State System (Ctrl + Q)" Icon="Resources/Icons/SystemClose.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding SystemInfoCommand}" Label="Info"
+					ToolTip="Multi-State system information" Icon="Resources/Icons/SystemInfo.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding RenameSystemCommand}" Label="Rename"
+					ToolTip="Rename Multi-State system" Icon="Resources/Icons/Rename.png" />
+			</inf:InfToolbarTab>
+
+			<inf:InfToolbarSeparator />
+
+			<inf:InfToolbarTab Header="Control Chart">
+
+				<inf:InfToolbarButton
+					Command="{Binding AddChartCommand}" Label="Add"
+					ToolTip="Add Control Chart" Icon="Resources/Icons/ChartAdd.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding DeleteChartCommand}" Label="Delete"
+					ToolTip="Delete Control Chart" Icon="Resources/Icons/ChartClose.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding ClearChartCommand}" Label="Clear"
+					ToolTip="Clear Chart Data" Icon="Resources/Icons/ChartClearData.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding GenerateRandomDataCommand}" Label="Random"
+					ToolTip="Random Data" Icon="Resources/Icons/ChartRandomData.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding RenameChartCommand}" Label="Rename"
+					ToolTip="Rename Control Chart" Icon="Resources/Icons/Rename.png" />
+
+			</inf:InfToolbarTab>
+
+			<inf:InfToolbarSeparator />
+
+			<inf:InfToolbarTab Header="Tools">
+				<inf:InfToolbarButton
+					Command="{Binding LimitsCalculatorCommand}" Label="Limits Calc"
+					ToolTip="Calculate Angular Limits" Icon="Resources/Icons/ToolsCalculateLimits.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding LimitsPlotterCommand}" Label="Limits Plotter"
+					ToolTip="Plot Angular Limits vs Shape Parameter" Icon="Resources/Icons/ToolsPlotLimits.png" />
+			</inf:InfToolbarTab>
+
+			<inf:InfToolbarSeparator />
+
+			<inf:InfToolbarTab Header="Export">
+				<inf:InfToolbarButton
+					Command="{Binding WindowScreenShotCommand}" Label="Window"
+					ToolTip="Window screenshot (Ctrl + P)" Icon="Resources/Icons/WindowScreenShot.png" />
+
+				<inf:InfToolbarButton
+					Command="{Binding ChartScreenShotCommand}" Label="Chart"
+					ToolTip="Chart screenshot (Ctrl + C)" Icon="Resources/Icons/ChartScreenShot.png" />
+			</inf:InfToolbarTab>
+		</inf:InfToolbar>
+
+		<inf:InfTabControl
+			Margin="0,4,0,0" ItemsSource="{Binding System.Charts, FallbackValue={x:Null}}"
+			SelectedValue="{Binding System.CurrentChart, FallbackValue={x:Null}}" />
+	</DockPanel>
+
+	<Window.InputBindings>
+		<KeyBinding Modifiers="Control" Key="N" Command="{Binding NewSystemCommand}" />
+		<KeyBinding Modifiers="Control" Key="Q" Command="{Binding CloseSystemCommand}" />
+		<KeyBinding Modifiers="Control" Key="S" Command="{Binding SaveSystemCommand}" />
+		<KeyBinding Modifiers="Control" Key="O" Command="{Binding OpenSystemCommand}" />
+
+		<KeyBinding Modifiers="Control" Key="W" Command="{Binding WindowScreenShotCommand}" />
+		<KeyBinding Modifiers="Control" Key="C" Command="{Binding ChartScreenShotCommand}" />
+	</Window.InputBindings>
+
+	<Window.CommandBindings>
+		<CommandBinding Command="SystemCommands.CloseWindowCommand" Executed="CloseWindow" />
+	</Window.CommandBindings>
+</inf:InfWindow>

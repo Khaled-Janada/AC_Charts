@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:inf="clr-namespace:Infinity.Controls"
+					xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="/Infinity.MahApps;component/Themes/Theme.xaml" />
+		<ResourceDictionary Source="/MahApps.Metro;component/themes/metrowindow.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<Style TargetType="{x:Type inf:InfWindow}" BasedOn="{StaticResource {x:Type mah:MetroWindow}}" x:Key="Infinity.Style.InfWindow">
+		<Style.Resources>
+			<Style TargetType="{x:Type mah:WindowButtonCommands}" BasedOn="{StaticResource MahApps.Styles.WindowButtonCommands.Base}">
+				<Setter Property="Margin" Value="0,0,0,-6" />
+				<Setter Property="Foreground"
+						Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type inf:InfWindow}}}" />
+			</Style>
+
+			<DataTemplate x:Key="WindowTitleTemplate">
+				<TextBlock
+					Text="{Binding}"
+					VerticalAlignment="Center"
+					HorizontalAlignment="{Binding Path=TitleAlignment, RelativeSource={RelativeSource AncestorType={x:Type inf:InfWindow}}}"
+					FontSize="{Binding Path=TitleFontSize, RelativeSource={RelativeSource AncestorType={x:Type inf:InfWindow}}}"
+					FontWeight="{Binding Path=TitleFontWeight, RelativeSource={RelativeSource AncestorType={x:Type inf:InfWindow}}}"
+					FontFamily="{Binding Path=TitleFontFamily, RelativeSource={RelativeSource AncestorType={x:Type inf:InfWindow}}}"
+					Foreground="{Binding Path=TitleForeground, RelativeSource={RelativeSource AncestorType={x:Type inf:InfWindow}}}" />
+			</DataTemplate>
+		</Style.Resources>
+
+		<Setter Property="GlowBrush" Value="{StaticResource MahApps.Brushes.Accent}" />
+		<Setter Property="FontSize" Value="15" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="TitleAlignment" Value="Center" />
+		<Setter Property="TitleCharacterCasing" Value="Normal" />
+		<Setter Property="TitleTemplate" Value="{StaticResource WindowTitleTemplate}" />
+		<Setter Property="IconEdgeMode" Value="Aliased" />
+		<Setter Property="IconBitmapScalingMode" Value="HighQuality" />
+		<Setter Property="TitleBarHeight" Value="20" />
+	</Style>
+</ResourceDictionary>

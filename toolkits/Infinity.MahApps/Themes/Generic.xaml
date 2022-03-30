@@ -1,0 +1,34 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:inf="clr-namespace:Infinity.Controls">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Infinity.MahApps;component/Themes/Controls.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- Basic Controls -->
+    <Style TargetType="inf:InfComboBox" BasedOn="{StaticResource Infinity.Style.InfComboBox}" />
+    <Style TargetType="inf:InfNumberBox" BasedOn="{StaticResource Infinity.Style.InfNumberBox}" />
+    <Style TargetType="inf:InfTextBox" BasedOn="{StaticResource Infinity.Style.InfTextBox}" />
+
+    <!-- Data Grid -->
+    <Style TargetType="inf:InfDataGrid" BasedOn="{StaticResource Infinity.Style.InfDataGrid}" />
+
+    <!-- Menu -->
+    <Style TargetType="inf:InfMenu" BasedOn="{StaticResource Infinity.Style.InfMenu}" />
+    <Style TargetType="inf:InfMenuItem" BasedOn="{StaticResource Infinity.Style.InfMenuItem}" />
+
+    <!-- Tab Control -->
+    <Style TargetType="inf:InfTabControl" BasedOn="{StaticResource Infinity.Style.InfTabControl}" />
+
+    <!-- Toolbar -->
+    <Style TargetType="inf:InfToolbar" BasedOn="{StaticResource Infinity.Style.InfToolbar}" />
+    <Style TargetType="inf:InfToolbarButton" BasedOn="{StaticResource Infinity.Style.InfToolbarButton}" />
+    <Style TargetType="inf:InfToolbarSeparator" BasedOn="{StaticResource Infinity.Style.InfToolbarSeparator}" />
+    <Style TargetType="inf:InfToolbarTab" BasedOn="{StaticResource Infinity.Style.InfToolbarTab}" />
+
+    <!-- Window -->
+    <Style TargetType="inf:InfRenameDialog" BasedOn="{StaticResource Infinity.Style.InfRenameDialog}" />
+    <Style TargetType="inf:InfWindow" BasedOn="{StaticResource Infinity.Style.InfWindow}" />
+</ResourceDictionary>

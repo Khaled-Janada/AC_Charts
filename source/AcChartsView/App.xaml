@@ -1,0 +1,44 @@
+﻿<componentModel:MahApplicationBase
+	x:Class="AcCharts.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:componentModel="clr-namespace:Infinity.ComponentModel;assembly=Infinity.MahApps"
+	xmlns:drawingVm="clr-namespace:AcCharts.Drawing;assembly=AcChartsViewModel"
+	xmlns:drawing="clr-namespace:AcCharts.Drawing"
+	xmlns:chartVm="clr-namespace:AcCharts.Chart;assembly=AcChartsViewModel"
+	xmlns:chart="clr-namespace:AcCharts.Chart"
+	Startup="App_OnStartup" ShutdownMode="OnMainWindowClose">
+
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<!-- General -->
+				<ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+				<ResourceDictionary Source="/Infinity.MahApps;component/Themes/Controls.xaml" />
+
+				<!-- Styles -->
+				<ResourceDictionary Source="Resources/Styles/ButtonStyle.xaml" />
+				<ResourceDictionary Source="Resources/Styles/ChartStyle.xaml" />
+				<ResourceDictionary Source="Resources/Styles/MenuStyle.xaml" />
+				<ResourceDictionary Source="Resources/Styles/ToolbarStyle.xaml" />
+				<ResourceDictionary Source="Resources/Styles/WindowStyle.xaml" />
+
+				<ResourceDictionary Source="/Infinity.MahApps;component/DataTemplates/BindableIntDataTemplate.xaml" />
+				<ResourceDictionary Source="/Infinity.Wpf;component/DataTemplates/OkCancelDataTemplate.xaml" />
+				<ResourceDictionary Source="/Infinity.Wpf;component/DataTemplates/RenameDataTemplate.xaml" />
+
+				<ResourceDictionary Source="/Statistics/DistributionListDataTemplate.xaml" />
+				<ResourceDictionary Source="/SystemData/SystemDataTemplate.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+
+			<!-- View Model Templates	 -->
+			<DataTemplate DataType="{x:Type drawingVm:ChartViewModel}">
+				<drawing:ChartView DataContext="{Binding}" />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type chartVm:AcChartViewModel}">
+				<chart:AcChartView DataContext="{Binding}" />
+			</DataTemplate>
+		</ResourceDictionary>
+	</Application.Resources>
+</componentModel:MahApplicationBase>

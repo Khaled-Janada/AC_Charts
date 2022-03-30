@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+        <Authors>Khaled Janaada</Authors>
+        <Company>Khaled Janada</Company>
+        <AssemblyVersion>1.0</AssemblyVersion>
+
+        <RootNamespace>AcCharts</RootNamespace>
+        <Product>AC Charts</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\toolkits\Infinity.Mvvm\Infinity.Mvvm.csproj" />
+        <ProjectReference Include="..\AcChartsModel\AcChartsModel.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.7" />
+    </ItemGroup>
+
+</Project>
