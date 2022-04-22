@@ -36,7 +36,10 @@ public class LimitsPlotterViewModel : ControlBaseViewModel {
 
     public DistributionType DistributionType {
         get => _distributionType;
-        set => SetProperty(ref _distributionType, value, _ => Update());
+        set => SetProperty(ref _distributionType, value, _ => {
+            Update();
+            Chart.XAxisTitle = new AxisTitleViewModel($"Shape Parameter ({DistributionType.ShpaeParameterSymbol()})");
+        });
     }
 
     public Command ChartScreenShotCommand { get; }
@@ -46,7 +49,7 @@ public class LimitsPlotterViewModel : ControlBaseViewModel {
         ChartScreenShotCommand = new Command(() => Send(new ScreenShotMessage("Chart", DpiOptionViewModel.ChartDpi), 1));
 
         Chart = new ChartViewModel {
-            XAxisTitle = new AxisTitleViewModel("Shape Parameter (\U0001D6FD)"),
+            XAxisTitle = new AxisTitleViewModel($"Shape Parameter ({DistributionType.ShpaeParameterSymbol()})"),
             YAxisTitle = new AxisTitleViewModel("Angle (Degree)"), XMax = _MaxShapeParameterValue, YMax = 90,
             UsePaddingForXAxis = false
         };

@@ -38,7 +38,7 @@ internal class MetaDistribution : IDistribution {
     }
 
     public double Sample() {
-        return InnerMetaDistribution.GetRandomValue(new Random()) + Parameters.Location;
+        return InnerMetaDistribution.GetRandomValue(new Random(Guid.NewGuid().GetHashCode())) + Parameters.Location;
     }
 
 }

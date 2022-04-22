@@ -23,6 +23,9 @@ public class ChartViewModel : ViewModelBase {
 
     private bool _usePaddingForXAxis = true;
     private bool _usePaddingForYAxis = true;
+
+    private AxisTitleViewModel? _xAxisTitle;
+    private AxisTitleViewModel? _yAxisTitle;
     #endregion
 
     #region Public Properties
@@ -61,8 +64,8 @@ public class ChartViewModel : ViewModelBase {
         set => SetProperty(ref _usePaddingForYAxis, value, _ => OnPropertyChanged(nameof(YMax)));
     }
 
-    public AxisTitleViewModel? XAxisTitle { get; set; }
-    public AxisTitleViewModel? YAxisTitle { get; set; }
+    public AxisTitleViewModel? XAxisTitle { get => _xAxisTitle; set => SetProperty(ref _xAxisTitle, value); }
+    public AxisTitleViewModel? YAxisTitle { get => _yAxisTitle; set => SetProperty(ref _yAxisTitle, value); }
     #endregion
 
     public ChartViewModel() {

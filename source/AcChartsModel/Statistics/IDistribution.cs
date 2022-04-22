@@ -53,6 +53,7 @@ public interface IDistribution : IComparable<IDistribution> {
 
     public static AngularControlLimits CalculateAngularLimits(
         DistributionType type, double shape, double location, ChartScale chartScale) {
+        shape = type.HasShape() ? shape : double.NaN;
         var dist = CreateDistribution(type, 1, shape, location);
         return dist.CalculateAngularLimits(chartScale);
     }
