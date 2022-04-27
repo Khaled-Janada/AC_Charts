@@ -23,7 +23,8 @@ public static class DistributionTypeExt {
     }
     
     public static string ShpaeParameterSymbol(this DistributionType type) {
-        return type is DistributionType.LogNormal ? "\U0001D70E" : "\U0001D6FD";
+        // return type is DistributionType.LogNormal ? "\U0001D70E" : "\U0001D6FD";
+        return "\U0001D6FD";
     }
 
 }
