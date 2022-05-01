@@ -36,9 +36,9 @@ public class ChartSpecs {
             ucl.Add(new Point(dist.UpperPoint, dist.Median));
         }
 
-        Ccl = new ControlLine(ControlLineType.Cl, ccl);
-        Lcl = new ControlLine(ControlLineType.Lcl, lcl);
-        Ucl = new ControlLine(ControlLineType.Ucl, ucl);
+        Ccl = new ControlLine(ControlLineType.Acl, ccl);
+        Lcl = new ControlLine(ControlLineType.Alcl, lcl);
+        Ucl = new ControlLine(ControlLineType.Aucl, ucl);
     }
 
 }

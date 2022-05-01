@@ -2,8 +2,8 @@
 
 public enum ControlLineType {
 
-    Lcl,
-    Cl,
-    Ucl
+    Alcl,
+    Acl,
+    Aucl
 
 }

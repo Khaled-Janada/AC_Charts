@@ -9,9 +9,9 @@ public class ControlLineViewModel : LineViewModel {
     #region Static
     private static DrawingElementType ToElementType(ControlLineType controlLineType) {
         return controlLineType switch {
-            ControlLineType.Cl => DrawingElementType.CentralControlLine,
-            ControlLineType.Lcl => DrawingElementType.LowerControlLine,
-            ControlLineType.Ucl => DrawingElementType.UpperControlLine,
+            ControlLineType.Acl => DrawingElementType.CentralControlLine,
+            ControlLineType.Alcl => DrawingElementType.LowerControlLine,
+            ControlLineType.Aucl => DrawingElementType.UpperControlLine,
             _                   => throw new ArgumentOutOfRangeException()
         };
     }
