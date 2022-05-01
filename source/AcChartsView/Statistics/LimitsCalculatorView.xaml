@@ -62,17 +62,20 @@
 				<inf:InfDataGrid.Columns>
 
 					<mah:DataGridNumericUpDownColumn
-						Header="LCL" Binding="{Binding (chartElements:AngularControlLimits.Lcl), Mode=OneWay}"
+						Header="{x:Static statistics:LimitsCalculatorViewModel.ThetaL}"
+						Binding="{Binding (chartElements:AngularControlLimits.Lcl), Mode=OneWay}"
 						HideUpDownButtons="True" TextAlignment="Left" StringFormat="N2"
 						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
 
 					<mah:DataGridNumericUpDownColumn
-						Header="CCL" Binding="{Binding (chartElements:AngularControlLimits.Ccl), Mode=OneWay}"
+						Header="{x:Static statistics:LimitsCalculatorViewModel.ThetaC}"
+						Binding="{Binding (chartElements:AngularControlLimits.Ccl), Mode=OneWay}"
 						HideUpDownButtons="True" TextAlignment="Left" StringFormat="N2"
 						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
 
 					<mah:DataGridNumericUpDownColumn
-						Header="UCL" Binding="{Binding (chartElements:AngularControlLimits.Ucl), Mode=OneWay}"
+						Header="{x:Static statistics:LimitsCalculatorViewModel.ThetaU}"
+						Binding="{Binding (chartElements:AngularControlLimits.Ucl), Mode=OneWay}"
 						HideUpDownButtons="True" TextAlignment="Left" StringFormat="N2"
 						ElementStyle="{StaticResource Infinity.Style.InfDataGrid.NumberBox}" />
 				</inf:InfDataGrid.Columns>

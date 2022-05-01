@@ -6,6 +6,12 @@ namespace AcCharts.Statistics;
 
 public class LimitsCalculatorViewModel : ControlBaseViewModel {
 
+    #region Static Properties
+    public const string ThetaC = "\U0001d703\u1d04";
+    public const string ThetaL = "\U0001d703\u029f";
+    public const string ThetaU = "\U0001d703\u1d1c";
+    #endregion
+    
     #region Properties
     public DistributionListViewModel DistributionList { get; }
     public ObservableCollection<AngularControlLimits> AngularControlLimitsList { get; }
