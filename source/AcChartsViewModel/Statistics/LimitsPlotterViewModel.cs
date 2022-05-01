@@ -54,9 +54,9 @@ public class LimitsPlotterViewModel : ControlBaseViewModel {
             UsePaddingForXAxis = false
         };
 
-        LclAngle = new SmoothLine("LCL") { Stroke = Brushes.Green };
-        CclAngle = new SmoothLine("CCL") { Stroke = Brushes.Blue };
-        UclAngle = new SmoothLine("UCL") { Stroke = Brushes.Red };
+        LclAngle = new SmoothLine("\U0001d703\u029f") { Stroke = Brushes.Green };
+        CclAngle = new SmoothLine("\U0001d703\u1d04") { Stroke = Brushes.Blue };
+        UclAngle = new SmoothLine("\U0001d703\u1d1c") { Stroke = Brushes.Red };
 
         Chart.AddLines(new[] { LclAngle, CclAngle, UclAngle });
         Update();
