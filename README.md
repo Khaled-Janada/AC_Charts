@@ -3,7 +3,7 @@
 [![Language: C#](https://img.shields.io/badge/Language-C%23-blue.svg)](https://docs.microsoft.com/en-us/dotnet/csharp/)
 [![Framework: .Net6](https://img.shields.io/badge/Framework-.Net6-blue.svg)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://zenodo.org/badge/476015015.svg)](https://doi.org/10.5281/zenodo.6399347)
+[![DOI](https://zenodo.org/badge/476015015.svg)](https://doi.org/10.5281/zenodo.6512066)
 ---
 
 A software for implementing "Angular Control Charts."
