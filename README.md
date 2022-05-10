@@ -6,7 +6,11 @@
 [![DOI](https://zenodo.org/badge/476015015.svg)](https://doi.org/10.5281/zenodo.6512066)
 ---
 
-A software for implementing "Angular Control Charts."
+A software for Implementing Angular Control Charts in Reliability Monitoring of Multi-State Systems.
+
+For more info refer to the preprint on [arXiv.org](https://arxiv.org/abs/2205.02024):
+> [Angular Control Charts: A New Perspective for Monitoring Reliability of Multi-State Systems](https://arxiv.org/abs/2205.02024)
+
 
 ---
 
