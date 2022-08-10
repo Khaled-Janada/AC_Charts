@@ -12,7 +12,7 @@
 
 	<DataTemplate DataType="{x:Type stats:DistributionListViewModel}">
 		<StackPanel Orientation="Vertical">
-			<TextBlock Margin="5" TextAlignment="Center" Text="{x:Static stats:DistributionListViewModel.ListTitle}" />
+			<TextBlock Margin="5" TextAlignment="Center" Text="{x:Static stats:DistributionListViewModel._ListTitle}" />
 
 			<inf:InfDataGrid
 				IsReadOnly="{Binding IsEditable, Converter={StaticResource InvertBoolConverter}}"

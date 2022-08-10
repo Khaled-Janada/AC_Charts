@@ -39,10 +39,6 @@ public class InfWindow : MetroWindow {
     }
     #endregion
     
-
-    #region Dialog Result
-    #endregion
-
     #region Constructors
     static InfWindow() {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(InfWindow), new FrameworkPropertyMetadata(typeof(InfWindow)));
