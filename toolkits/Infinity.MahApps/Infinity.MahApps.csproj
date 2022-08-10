@@ -10,6 +10,8 @@
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 
+        <Authors>Khaled Janaada</Authors>
+        <Company>Khaled Janada</Company>
         <AssemblyVersion>1.1</AssemblyVersion>
 
         <RootNamespace>Infinity</RootNamespace>

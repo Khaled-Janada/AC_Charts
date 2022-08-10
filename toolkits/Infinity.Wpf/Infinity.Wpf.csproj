@@ -10,6 +10,8 @@
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 
+        <Authors>Khaled Janaada</Authors>
+        <Company>Khaled Janada</Company>
         <AssemblyVersion>1.1</AssemblyVersion>
 
         <RootNamespace>Infinity</RootNamespace>
@@ -17,6 +19,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Infinity.Mvvm\Infinity.Mvvm.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="obj\Release\Infinity.Wpf.AssemblyInfo.cs" />
     </ItemGroup>
 
 </Project>

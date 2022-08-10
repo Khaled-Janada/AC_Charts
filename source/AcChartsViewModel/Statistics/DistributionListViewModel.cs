@@ -11,7 +11,7 @@ public class DistributionListViewModel : CounterCollection<DistributionViewModel
     private const ushort _InitialCount = 2;
     private const string _CounterName = "No. of Transitions";
 
-    public const string _ListTitle = "State-Transitions' Probability Distributions";
+    public const string ListTitle = "State-Transitions' Probability Distributions";
 
     public static readonly ReadOnlyCollection<DistributionType> DistributionTypes = Enum<DistributionType>.ToList();
     #endregion

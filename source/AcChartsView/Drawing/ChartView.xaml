@@ -55,11 +55,7 @@
 			</drawingV:Chart.AxisX>
 			<drawingV:Chart.AxisY>
 				<lvc:Axis MinValue="{x:Static drawingVm:ChartViewModel.MinValue}" MaxValue="{Binding YMax}"
-						  LabelFormatter="{Binding LabelFormatter}">
-					<!-- <lvc:Axis.Separator> -->
-					<!-- 	<lvc:Separator Step="15" IsEnabled="True" /> -->
-					<!-- </lvc:Axis.Separator> -->
-				</lvc:Axis>
+						  LabelFormatter="{Binding LabelFormatter}" />
 			</drawingV:Chart.AxisY>
 		</drawingV:Chart>
 

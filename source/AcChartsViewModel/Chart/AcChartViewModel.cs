@@ -16,7 +16,7 @@ public class AcChartViewModel : ControlBaseViewModel, IHasName {
     #region Static
     private const double _PointPadding = 1.1;
     private const double _CLsLabelPadding = 1.02;
-    internal const int _MaxObservations = 60;
+    internal const int MaxObservations = 60;
 
     private const string _XTitle = "Observed Time to Failure (\U0001D461)";
 
@@ -60,7 +60,7 @@ public class AcChartViewModel : ControlBaseViewModel, IHasName {
         };
 
         Observations = new BindingLockedCollection<Observation, ObservationViewModel>(Model.Observations, AddObservation) {
-            Counter = { MinValue = 0, MaxValue = _MaxObservations }
+            Counter = { MinValue = 0, MaxValue = MaxObservations }
         };
         Observations.ItemRemoved += RemoveObservation;
 

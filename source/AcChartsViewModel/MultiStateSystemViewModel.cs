@@ -84,7 +84,7 @@ public class MultiStateSystemViewModel : ViewModelBase {
 
     public void GenerateRandomExecute() {
         if (CurrentChart is null) return;
-        var maxNumPoints = AcChartViewModel._MaxObservations - CurrentChart.Observations.Count;
+        var maxNumPoints = AcChartViewModel.MaxObservations - CurrentChart.Observations.Count;
 
         CurrentChart.AddObservations(Send(new GenerateRandomDataRequestMessage(Model.ChartSpecs, maxNumPoints)).Response);
     }
