@@ -4,6 +4,22 @@ namespace AcCharts.Statistics.DistributionImplementations;
 
 internal class MetaDistribution : IDistribution {
 
+    #region Private Properties
+
+    internal static IReadOnlyList<DistributionType> MetaDistributionsList = new List<DistributionType> {
+        DistributionType.Erlang,
+        DistributionType.Exponential,
+        DistributionType.Frechet,
+        DistributionType.Gamma,
+        DistributionType.LogNormal,
+        DistributionType.Rayleigh,
+        DistributionType.Weibull
+    };
+    
+    
+
+    #endregion
+
     #region Public Properties
     public DistributionParameters Parameters { get; init; }
 
@@ -26,7 +42,7 @@ internal class MetaDistribution : IDistribution {
             DistributionType.LogNormal   => new LognormalDistribution(mu: Parameters.Scale, sigma: Parameters.Shape),
             DistributionType.Rayleigh    => new RayleighDistribution(scale: Parameters.Scale),
             DistributionType.Weibull     => new WeibullDistribution(scale: Parameters.Scale, shape: Parameters.Shape),
-            _                            => throw new ArgumentOutOfRangeException()
+            _                            => throw new ArgumentOutOfRangeException(nameof(parameters), "Distribution type is not supported.")
         };
 
         Mean = InnerMetaDistribution.Mean     + Parameters.Location;

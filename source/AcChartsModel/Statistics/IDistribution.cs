@@ -8,7 +8,7 @@ namespace AcCharts.Statistics;
 public interface IDistribution : IComparable<IDistribution> {
 
     #region Constants
-    private const double _C = 0.0027;
+    private const double C = 0.0027;
     #endregion
 
     #region Properties
@@ -17,8 +17,8 @@ public interface IDistribution : IComparable<IDistribution> {
     public double Mean { get; }
     public double Median { get; }
 
-    public double LowerPoint => Quantile(_C / 2);
-    public double UpperPoint => Quantile(1 - _C / 2);
+    public double LowerPoint => Quantile(C / 2);
+    public double UpperPoint => Quantile(1 - C / 2);
     #endregion
 
     #region Default Implementations
@@ -44,7 +44,12 @@ public interface IDistribution : IComparable<IDistribution> {
 
     #region Static Methods
     internal static IDistribution CreateDistribution(DistributionParameters parameters) {
-        return new MetaDistribution(parameters);
+        return parameters.Type switch {
+            var t when MetaDistribution.MetaDistributionsList.Contains(t) => new MetaDistribution(parameters),
+            DistributionType.LogLogistic => new LogLogisticDistribution(parameters),
+            DistributionType.HalfLogistic => new HalfLogisticDistribution(parameters),
+            _ => throw new ArgumentOutOfRangeException(nameof(parameters), "Distribution type is not supported.")
+        };
     }
 
     public static IDistribution CreateDistribution(DistributionType type, double scale, double shape, double location) {

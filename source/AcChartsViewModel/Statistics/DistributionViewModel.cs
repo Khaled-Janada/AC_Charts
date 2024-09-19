@@ -20,7 +20,7 @@ public class DistributionViewModel : ViewModelBase {
     }
 
     public double Shape {
-        get => Type.IsShapeInteger() ? (int)_shape : Type.HasShape() ? _shape : double.NaN;
+        get => Type.GetShapeParameter(_shape);
         set => SetProperty(ref _shape, value);
     }
 
